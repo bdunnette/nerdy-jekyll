@@ -7,14 +7,17 @@
 
     {% include header.html %}
 
-    <div class="page-content">
-      <div class="wrapper">
+    <div class="page-content container-fluid">
+      <div class="wrapper row-fluid">
         {{ content }}
+      </div>
+      <div class="footer row-fluid">
+        {% include footer.html %}
       </div>
     </div>
 
-    {% include footer.html %}
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
+    <script src="{{'/js/bootstrap.js'|prepend:site.baseurl}}"></script>
   </body>
 
 </html>

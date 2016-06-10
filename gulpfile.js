@@ -8,8 +8,16 @@ gulp.task('build', shell.task(['bundle exec jekyll build --watch']));
 // gulp.task('build', shell.task(['jekyll build --watch']));
 
 // Task for serving blog with Browsersync
-gulp.task('serve', function () {
-    browserSync.init({server: {baseDir: '_site/'}});
+gulp.task('serve', function() {
+    browserSync.init({
+        server: {
+            baseDir: '_site/',
+            routes: {
+                "/nerdy-jekyll": "_site/"
+            },
+            reloadDelay: 3000
+        }
+    });
     // Reloads page when some of the already built files changed:
     gulp.watch('_site/**/*.*').on('change', browserSync.reload);
 });
